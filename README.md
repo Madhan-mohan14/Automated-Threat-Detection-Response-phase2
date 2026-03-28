@@ -2,9 +2,6 @@
 
 A fully functional Security Information and Event Management (SIEM) system built entirely with open-source tools. Utilizing Wazuh and TheHive, this automated SOC pipeline features real-time threat detection, Active Response (automated firewall blocking), File Integrity Monitoring (FIM), and SOAR integration for incident ticketing.
 
-# 🛡️ Automated Threat Detection and Response using Open-Source SIEM
-
-A fully functional **Security Information and Event Management (SIEM)** system with automated threat detection, active response, file integrity monitoring, and SOAR integration — built entirely with open-source tools.
 
 ## 📋 Project Overview
 
