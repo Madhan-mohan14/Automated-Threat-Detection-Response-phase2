@@ -355,7 +355,7 @@ sudo /var/ossec/active-response/bin/firewall-drop delete - - 10.0.2.5
 | Name | Role |
 |------|------|
 | Madhan Mohan Naidu .M (22BCY10182) | Full system development — Wazuh server/agent setup, Active Response configuration, File Integrity Monitoring, TheHive Docker deployment, Wazuh-TheHive integration script |
-| Rehan Rajesh (22BCY10196) | attack simulation & validation , presentation preparation, and documentation |
+| Rehan Rajesh (22BCY10196) | Attack simulation & validation , presentation preparation, and documentation |
 | V.A.Aaswin (22BCY10257) |Project report writing, Research and data gathering for report  |
 | Insaf Sadik A S (22BCY10282) | Research and data gathering for report |
 
