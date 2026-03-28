@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""
+Wazuh <-> TheHive Integration Script
+=====================================
+Location: /var/ossec/integrations/custom-thehive
+
+This script is called by the Wazuh integratord daemon whenever
+an alert matching the configured rule_id is triggered.
+
+Wazuh passes three arguments:
+  1. Path to the alert JSON file
+  2. API key for TheHive
+  3. Hook URL (TheHive alert endpoint)
+
+Setup:
+  sudo chmod 750 /var/ossec/integrations/custom-thehive
+  sudo chown root:wazuh /var/ossec/integrations/custom-thehive
+"""
+
+import sys
+import json
+import requests
+
+# Suppress InsecureRequestWarning for verify=False
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+def main():
+    # Wazuh passes alert file path, API key, and hook URL as arguments
+    alert_file = sys.argv[1]
+    api_key = sys.argv[2]
+    hook_url = sys.argv[3]
+
+    # Read the alert JSON from Wazuh
+    with open(alert_file) as f:
+        alert = json.load(f)
+
+    # Build TheHive alert payload
+    headers = {
+        "Authorization": "Bearer " + api_key,
+        "Content-Type": "application/json"
+    }
+
+    data = {
+        "title": "Wazuh Alert - Rule " + str(alert["rule"]["id"]),
+        "description": alert["rule"]["description"],
+        "type": "external",
+        "source": "Wazuh",
+        "sourceRef": str(alert["id"]),
+        "severity": 2
+    }
+
+    # Send alert to TheHive
+    response = requests.post(
+        hook_url,
+        headers=headers,
+        json=data,
+        verify=False
+    )
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
