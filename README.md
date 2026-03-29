@@ -338,7 +338,11 @@ sudo nano /etc/hosts  # Delete lines containing "hacked", "compromised", etc.
 # Unblock attacker IP (or wait 600 seconds for auto-unblock)
 sudo /var/ossec/active-response/bin/firewall-drop delete - - 10.0.2.5
 ```
+## 🎥 Project Demonstration Video
 
+[![Demonstration Video](https://img.youtube.com/vi/5Vjwi6d7peA/maxresdefault.jpg)](https://youtu.be/5Vjwi6d7peA)
+
+*Click the image above to watch the full technical demonstration of our automated SOC pipeline, including real-time threat detection, Active Response, and incident ticketing.*
 ## 🔮 Future Enhancements
 
 - **Cortex Integration:** Automated threat intelligence enrichment (IP reputation, MISP lookups)
